@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Coding Dojo Algorithms</title>
+  <meta name="description" content="">
+  <meta name="Elliott Hindman" content="Javascript Algorithms">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="http://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns spiffy">
+        <h3>1. Print 1-255</h3>
+        <p>Description: Write an program that will print all the numbers between 1 and 255.</p>
+        <input type="tel" class="user-input" placeholder="Type a number < 5,000"> 
+        <button class="button-primary" onclick="print255('#output-1')" type="submit">Run Alogrithm</button>
+        <button class="button-primary show-hide" onclick="showWork('#algorithm-1')" type="submit">Toggle Notes</button>
+        <button onclick="clearOutput('#output-1', '#algorithm-1')">Clear</button><br><br>
+        
+<!-- CODE EXAMPLE ———————————————————————————————————————— -->
+<div class="algorithm-notes hidden" id="algorithm-1">
+To make this algorithm, we can use a <i>for loop</i>. We set the initial value of i equal to 1, and stop the loop when i<=255. We increment i up by 1 with the syntax i++ (i.e. i = i+1).<br>
+<br>
+for (i=1; i<=255; i++) {<br>
+&nbsp&nbsp&nbspconsole.log(i);<br>
+}
+</div>
+<!-- ————————————————————————————————————————————————————— -->
+
+        <div id="output-1">
+        <!-- This is where the algorthim is printed -->
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- JavaScript -->
+  <script type="text/javascript" src="js/main.js"></script>
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</body>
+</html>
