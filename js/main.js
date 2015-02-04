@@ -16,7 +16,7 @@ function forLoop(init, increment, inputId, outputId){
 	var quantity = $(inputId).val();
 	var formatText = removePunc(quantity);
 	$(outputId).empty();
-	 if(!testInput(formatText, outputId))
+	 if(!testInput(formatText, outputId, 5000))
         {
           return;
         }
@@ -26,9 +26,26 @@ function forLoop(init, increment, inputId, outputId){
 		$(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
 }
 
+function printSum(init, increment, inputId, outputId){
+	var quantity = $(inputId).val();
+	var formatText = removePunc(quantity);
+	var sum = 0;
+
+	$(outputId).empty();
+	 if(!testInput(formatText, outputId, 5000000))
+        {
+          return;
+        }
+		for(i=init; i<=formatText; i=i+increment) {
+			sum = sum + i;
+		}
+		$(outputId).append("The sum of all the ODD numbers from " +init+ " to " +formatText+ " is " +sum+"!");
+		$(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
+}
+
 //Tests input for common input errors
-function testInput(input, outputId) {
-  if (input !== "" && input < 5000 && input > 0) {
+function testInput(input, outputId, maxValue) {
+  if (input !== "" && input <= maxValue && input > 0) {
       return true;
   	} 
   	else if (input == "") {
@@ -37,8 +54,8 @@ function testInput(input, outputId) {
 	else if (input <= 0) {
 		errorMessage(outputId, "Oh! Did I mention zeros and negative numbers don't work here?");
 	}
-	else if (input > 5000 ){
-		errorMessage(outputId, "Whoa! That number is too huge!! Why not choose a number less than 5,000?");
+	else if (input >= maxValue ){
+		errorMessage(outputId, "Whoa! That number is huge!! Why not choose a smaller number?");
 	}
 	else if (isNaN(input)) {
 		errorMessage(outputId, "Wait a second... Is that even a number?");
