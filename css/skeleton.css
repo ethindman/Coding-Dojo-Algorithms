@@ -9,19 +9,29 @@
 
 /*User Customizations*/
 
-.spiffy { 
+.center-it {
+  text-align: center;
+  margin: 5px auto;
+  padding: 25px;
+}
+.center-it p {
+  margin: 5px auto;
+  max-width: 700px;
+}
+
+.lesson-node { 
   margin-top: 5%;
   border-bottom: 1px solid #EEE;
   padding: 25px 25px 35px 25px;
 }
 .user-input {
   min-width: 200px;
-  max-width: 400px;
+  width: 100%;
   border-radius: 5px;
   padding: 10px;
-  margin: 5px;
+  margin: 7px auto;
 }
-.algorithm-notes {
+.lesson-notes {
   margin: 5px auto;
   background: #efefef;
   padding: 15px;
@@ -30,11 +40,15 @@
 .hidden {
   display: none;
 }
-#output-1 {
+.output {
   margin-top: 20px;
 }
 .error-msg {
   color: #FA8072;
+}
+.success-msg {
+  color: #9ACD32;
+  margin-top: 5px;
 }
 
 /* Table of contents
@@ -431,18 +445,18 @@ there.
 */
 
 /* Larger than mobile */
-@media (max-width: 400px) {}
+@media (min-width: 400px) {}
 
 /* Larger than phablet (also point when grid becomes active) */
-@media (max-width: 550px) {
-.user-input {width: 90%; margin-bottom: 15px;}
+@media (min-width: 550px) {}
+
+/* Larger than tablet */
+@media (max-width: 1000px) {
+.user-input {width: 95%; margin-bottom: 15px;}
 button {width: 95%; margin-top: 5px;}
 .spiffy {text-align: center;}
 .algorithm-notes {text-align: left;}
 }
-
-/* Larger than tablet */
-@media (min-width: 750px) {}
 
 /* Larger than desktop */
 @media (min-width: 1000px) {}
