@@ -43,6 +43,12 @@
 .output {
   margin-top: 20px;
 }
+.highlight {
+  border-radius: 5px;
+  padding: 4px 12px 7px 10px;
+  background: goldenrod;
+  color: white;
+}
 .error-msg {
   color: #FA8072;
 }

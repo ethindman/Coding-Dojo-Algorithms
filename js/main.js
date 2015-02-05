@@ -37,14 +37,14 @@ function printSum(init, increment, inputId, outputId) {
 		for(i=init; i<=formatText; i=i+increment) {
 			sum = sum + i;
 		}
-		$(outputId).append("The sum of all the ODD numbers from " +init+ " to " +formatText+ " is " +sum+"!");
+		$(outputId).append("<h5>The sum of all the ODD numbers from " +init+ " to " +formatText+ " is <span class='highlight'>" +sum+"</span></h5>");
 		$(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
 }
 
 //Gets a random array of values, then determines the max value
 function findMax(outputId) {
   $(outputId).empty();
-  getArray(outputId, 100000);
+  getArray(outputId, 1000);
   var max = x[0];
  
 for(i=1;i<x.length;i++) {
@@ -53,7 +53,7 @@ for(i=1;i<x.length;i++) {
     max = x[i]; 
   }
 }
-$(outputId).append('<p>The max value in x is <b>' +max+"</b></p>");
+$(outputId).append("<h5>The max value in x is <span class='highlight'>" +max+"</span></h5>");
 $(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
 }
 
@@ -80,11 +80,12 @@ function testInput(input, outputId, maxValue) {
 //Produces a random array of numbers
 function getArray(outputId, range) {
   x = [];
-for(i=0;i<9;i++) 
+for(i=0;i<10;i++) 
 {
-   x[i] = Math.floor((Math.random() * range) + 1);
+  x[i] = Math.floor((Math.random() * range)+1);
   x.push(i);
 }
+x.pop();
 $(outputId).append("<p>Your randomly generated array is: x = ["+[x]+"]</p>");
 }
 
