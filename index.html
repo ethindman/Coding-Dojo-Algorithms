@@ -38,7 +38,6 @@
     </div>
   </div>
 
-
   <div class="container">
     <div class="row">
       <div class="twelve columns lesson-node">
@@ -119,8 +118,41 @@ console.log(sum);
         </div>
       </div>
     </div>
-  </div><br><br>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns lesson-node">
+        <h3>4. Find Max</h3>
+        <p>Description: Given an array with multiple values (e.g. [-3, 3, 5, 7]), write a program that prints the maximum number in the array. For this example, clicking the 'Run Algorithm' button will first generate a random array of 10 values between 1 and 100,000. Then another algorithm will find the largest ("max") value in that arrray.</p>
+        <button class="button-primary" onclick="findMax('#algorthim-4')">Run Alogrithm</button>
+        <button class="button-primary show-hide">Toggle Notes</button>
+        <button class="clear">Clear</button><br><br>
+        
+<!-- FIND MAX LESSON NOTES ———————————————————————————————————————— -->
+<div class="lesson-notes hidden">
+The algorithm to find max looks like this:<br><br>
+x = [1,2,3,4,5];<br>
+var len = x.length;<br>
+var max = x[0];<br><br>
+for( i=1; i < len; i++ ) {<br>
+&nbsp&nbsp&nbsp if (x[i] > max) {<br>
+&nbsp&nbsp&nbsp max = x[i];<br>
+&nbsp&nbsp&nbsp}<br>
+}<br>
+console.log(max);<br><br>
+As you can see, we set reference value, max = x[0], or the first value of the array. As we iterate through the array, each time we compare max to the current array value x[i]. If x[i] > max, we update max so that max is equal to x[i]. In other words, each time x[i] is greater than the variable 'max', the variable 'max', will be updated. In this way, we can find the largest value in the array.
+</div>
+<!-- ————————————————————————————————————————————————————— -->
+
+        <div class="output" id="algorthim-4">
+        <!-- This is where the algorthim is printed -->
+        </div>
+      </div>
+    </div>
+  </div>
   
+  <br><br>
   <div class="container">
     <div class="row">
       <div class="twelve columns lesson-node">

@@ -1,4 +1,4 @@
-//jQuery functions wll toggle notes section and clear button for each lesson-node
+//jQuery functions wll toggle notes section and "clear" button for each lesson-node
 $(document).ready(function() {
 	$('.show-hide').click(function() {
     	$(this).closest('.lesson-node').find('.lesson-notes').slideToggle();
@@ -16,26 +16,24 @@ function forLoop(init, increment, inputId, outputId){
 	var quantity = $(inputId).val();
 	var formatText = removePunc(quantity);
 	$(outputId).empty();
-	 if(!testInput(formatText, outputId, 5000))
-        {
+	if(!testInput(formatText, outputId, 5000)) {
           return;
-        }
-		for(i=init; i<=formatText; i=i+increment) {
-			$(outputId).append("  "+i);
-		}
-		$(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
+    }
+	for(i=init; i<=formatText; i=i+increment) {
+		$(outputId).append("  "+i);
+	}
+	$(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
 }
 
-function printSum(init, increment, inputId, outputId){
+function printSum(init, increment, inputId, outputId) {
 	var quantity = $(inputId).val();
 	var formatText = removePunc(quantity);
 	var sum = 0;
 
 	$(outputId).empty();
-	 if(!testInput(formatText, outputId, 5000000))
-        {
-          return;
-        }
+	if(!testInput(formatText, outputId, 5000000)) {
+    	return;
+    }
 		for(i=init; i<=formatText; i=i+increment) {
 			sum = sum + i;
 		}
@@ -43,9 +41,25 @@ function printSum(init, increment, inputId, outputId){
 		$(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
 }
 
+//Gets a random array of values, then determines the max value
+function findMax(outputId) {
+  $(outputId).empty();
+  getArray(outputId, 100000);
+  var max = x[0];
+ 
+for(i=1;i<x.length;i++) {
+  if (x[i] > max) 
+  {
+    max = x[i]; 
+  }
+}
+$(outputId).append('<p>The max value in x is <b>' +max+"</b></p>");
+$(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
+}
+
 //Tests input for common input errors
 function testInput(input, outputId, maxValue) {
-  if (input !== "" && input <= maxValue && input > 0) {
+	if (input !== "" && input <= maxValue && input > 0) {
       return true;
   	} 
   	else if (input == "") {
@@ -61,6 +75,17 @@ function testInput(input, outputId, maxValue) {
 		errorMessage(outputId, "Wait a second... Is that even a number?");
 	}
   	return false;
+}
+
+//Produces a random array of numbers
+function getArray(outputId, range) {
+  x = [];
+for(i=0;i<9;i++) 
+{
+   x[i] = Math.floor((Math.random() * range) + 1);
+  x.push(i);
+}
+$(outputId).append("<p>Your randomly generated array is: x = ["+[x]+"]</p>");
 }
 
 //Prints error message to nearest output area
