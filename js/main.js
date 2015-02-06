@@ -37,7 +37,7 @@ function printSum(init, increment, inputId, outputId) {
 		for(i=init; i<=formatText; i=i+increment) {
 			sum = sum + i;
 		}
-		$(outputId).append("<h5>The sum of all the ODD numbers from " +init+ " to " +formatText+ " is <span class='highlight'>" +sum+"</span></h5>");
+		$(outputId).append("<h5>The sum of all the ODD numbers from " +init+ " to " +formatText+ " is <span class='highlight-gold'>" +sum+"</span></h5>");
 		$(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
 }
 
@@ -53,9 +53,24 @@ for(i=1;i<x.length;i++) {
     max = x[i]; 
   }
 }
-$(outputId).append("<h5>The max value in x is <span class='highlight'>" +max+"</span></h5>");
+$(outputId).append("<h5>The max value in x is <span class='highlight-gold'>" +max+"</span></h5>");
 $(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
 }
+
+function findAverage(outputId) {
+	$(outputId).empty();
+	getArray(outputId, 10);
+	var sum = 0;
+
+	for (i=0;i<x.length;i++) {
+		sum = sum + x[i];
+	}
+	var average = sum / x.length;
+$(outputId).append("<h5>The sum of values in the array x is <span class='highlight-clear'>" +sum+"</span></h5>");
+$(outputId).append("<h5>So, the average of x is <span class='highlight-gold'>" +average+"</span></h5>");
+$(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
+}
+
 
 //Tests input for common input errors
 function testInput(input, outputId, maxValue) {

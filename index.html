@@ -33,7 +33,7 @@
     <div class="row">
       <div class="twelve columns center-it">
       <h1>Coding Dojo Algorithm Challenges</h1>
-      <p>Taking the algorithms from Coding Dojo's pre-bootcamp courswork and turning them into functional examples that users can play with and learn from. <a href="https://github.com/ethindman/Coding-Dojo-Algorithms">View on GitHub.</a></p> 
+      <p>Taking the algorithms from Coding Dojo's pre-bootcamp courswork and turning them into functional examples that users can play with and learn from. All functions are built without using any pre-built JavaScript functions or methods except .push() and .pop(). <a href="https://github.com/ethindman/Coding-Dojo-Algorithms">View on GitHub.</a></p> 
       </div>
     </div>
   </div>
@@ -135,7 +135,7 @@ The algorithm to find max looks like this:<br><br>
 x = [1,2,3,4,5];<br>
 var len = x.length;<br>
 var max = x[0];<br><br>
-for( i=1; i < len; i++ ) {<br>
+for (i=1; i < len; i++) {<br>
 &nbsp&nbsp&nbsp if (x[i] > max) {<br>
 &nbsp&nbsp&nbsp max = x[i];<br>
 &nbsp&nbsp&nbsp}<br>
@@ -151,7 +151,40 @@ As you can see, we set reference value, max = x[0], or the first value of the ar
       </div>
     </div>
   </div>
-  
+
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns lesson-node">
+        <h3>5. Find Average of Array</h3>
+        <p>Description: Given an array with multiple values (e.g. [1,3,5,7,20]), write a program that prints the average of the values in the array. The "Run Algorithm" button will first generate a random array of 10 values between 1-50, then it will calculate the average of the randomly generated array.</p>
+        <button class="button-primary" onclick="findAverage('#algorthim-5')">Run Alogrithm</button>
+        <button class="button-primary show-hide">Toggle Notes</button>
+        <button class="clear">Clear</button><br><br>
+        
+<!-- FIND AVERAGE LESSON NOTES ———————————————————————————————————————— -->
+<div class="lesson-notes hidden">
+To complete this algorithm we need to first calculate the sum of the array. We do this by creating a variable, sum = 0. Then we iterate through our array and
+update the value of sum with the logic, sum = sum + x[i]. After this, we create a variable, average, which equals sum/x.length, and then print the value of "average" to the console.<br><br>
+
+x = [1,2,3,4,5];<br>
+sum = 0;<br>
+for (i=0;i < x.length; i++) {<br>
+&nbsp&nbsp&nbsp sum = sum + x[i];<br>
+}<br>
+var average = sum / x.length;<br>
+console.log(average);<br>
+
+
+</div>
+<!-- ————————————————————————————————————————————————————— -->
+
+        <div class="output" id="algorthim-5">
+        <!-- This is where the algorthim is printed -->
+        </div>
+      </div>
+    </div>
+  </div>
+
   <br><br>
   <div class="container">
     <div class="row">

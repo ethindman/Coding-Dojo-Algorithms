@@ -43,11 +43,17 @@
 .output {
   margin-top: 20px;
 }
-.highlight {
+.highlight-gold {
   border-radius: 5px;
   padding: 4px 12px 7px 10px;
   background: goldenrod;
   color: white;
+}
+.highlight-clear {
+  border: 1px solid #BBB;
+  border-radius: 5px;
+  padding: 4px 12px 7px 10px;
+  color: #555;
 }
 .error-msg {
   color: #FA8072;
@@ -459,7 +465,7 @@ there.
 /* Larger than tablet */
 @media (max-width: 1000px) {
 .user-input {width: 95%; margin-bottom: 15px;}
-button {width: 95%; margin-top: 5px;}
+button {width: 95%; margin-top: 5px; height: 50px;}
 .spiffy {text-align: center;}
 .algorithm-notes {text-align: left;}
 }
