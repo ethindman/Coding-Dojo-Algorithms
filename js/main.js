@@ -108,8 +108,13 @@ function removeNegs(outputId, arrayLength, arrayRange, replaceValue) {
   		}
   		x[i] = " "+x[i];
   	}
+	if (count == 1) {
+		var outputText = "number";
+	} else {
+		var outputText = "numbers";
+	}
 $(outputId).append("<h5>When negatives are removed, x = ["+[x]+" ]</h5>");
-$(outputId).append("<h5>We replaced <span class='highlight-gold'>" +count+"</span> negative number(s) in this array. Hooray!</h5>");
+$(outputId).append("<h5>We replaced <span class='highlight-gold'>" +count+"</span> negative "+outputText+" in this array. Hooray!</h5>");
 $(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
 }
 
