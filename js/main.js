@@ -43,30 +43,35 @@ function printSum(init, increment, inputId, outputId) {
 }
 
 //Gets a random array of values, then determines the max value
-function findMax(outputId) {
+function findMaxMin(outputId) {
   $(outputId).empty();
   if (!getArray(outputId, '#arrayLength-1', '#arrayRange-1')) {
   	return;
   }
   var max = x[0];
+  var min = x[0];
  
 for(i=1;i<x.length;i++) {
   if (x[i] > max) 
   {
     max = x[i]; 
   }
+  if (x[i]<min) {
+  	min = x[i];
+  }
 }
-$(outputId).append("<h5>The max value in x is <span class='highlight-gold'>" +max+"</span></h5>");
+$(outputId).append("<h5>The largest value (max) in x is <span class='highlight-gold'>" +max+"</span></h5>");
+$(outputId).append("<h5>The smallest value (min) in x is <span class='highlight-gold'>" +min+"</span></h5>");
 $(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
 }
 
+//Gets a random array of values, then determines the average of that array
 function findAverage(outputId) {
 	$(outputId).empty();
-	if (!getArray(outputId, '#arrayLength-2', '#arrayRange-2')) {
+	if (!getPosArray(outputId, '#arrayLength-2', '#arrayRange-2')) {
   	return;
   }
 	var sum = 0;
-
 	for (i=0;i<x.length;i++) {
 		sum = sum + x[i];
 	}
@@ -76,8 +81,20 @@ $(outputId).append("<h5>So, the average of x is <span class='highlight-gold'>" +
 $(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
 }
 
+//Gets a random array of values, then squares those values
+function squareValues(outputId) {
+	$(outputId).empty();
+	if (!getArray(outputId, '#arrayLength-3', '#arrayRange-3')) {
+  		return;
+  	}
+  	for (i=0; i < x.length; i++) {
+    x[i] = " "+x[i]*x[i];
+	}
+$(outputId).append("<h5>When the values in x are squared, x = ["+[x]+" ]</h5>");
+$(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
+}
 
-//Tests input for common input errors
+//Tests user input for common input errors
 function testInput(input, outputId, maxValue) {
 	if (input !== "" && input <= maxValue && input > 0) {
       return true;
@@ -97,23 +114,42 @@ function testInput(input, outputId, maxValue) {
   	return false;
 }
 
-//Produces a random array of numbers
-function getArray(outputId, arrayLength, arrayRange) {
-var length = $(arrayLength).val();
-var range = $(arrayRange).val();
+//Produces a random array of numbers; ensures drop-down fields aren't left blank
+function getArray(outputId, length, range) {
+var length = $(length).val();
+var range = $(range).val();
 x = [];
 if (length != 0 && range != 0) {
-	for(i=0;i<length;i++) {
-  x[i] = Math.floor((Math.random() * range) +1);
-  x.push(i);
-}
-  x.pop();
-  $(outputId).append("<p>Your randomly generated array is: x = ["+[x]+"]</p>");
-  return true;
-} else {
-	errorMessage(outputId, "Oops! Did you set an array length and number range above?");
+  	for(i=0;i<length;i++) {
+	  	x[i] = Math.floor((Math.random() * range * 2) - range); 
+	  	x.push(i);
+	}
+  	x.pop();
+  	$(outputId).append("<p>Your randomly generated array is: x = [ "+x+" ]</p>");
+  	return true;
+	} else {
+	errorMessage(outputId, "Oops! Did you remember to set an array length <i>and</i> a range for your array?");
 	return false;
+	}
 }
+
+//Produces a random array of numbers; ensures drop-down fields aren't left blank
+function getPosArray(outputId, length, range) {
+var length = $(length).val();
+var range = $(range).val();
+x = [];
+if (length != 0 && range != 0) {
+  	for(i=0;i<length;i++) {
+	  	x[i] = Math.floor((Math.random() * range) + 1); 
+	  	x.push(i);
+	}
+  	x.pop();
+  	$(outputId).append("<p>Your randomly generated array is: x = [ "+x+" ]</p>");
+  	return true;
+	} else {
+	errorMessage(outputId, "Oops! Did you remember to set an array length <i>and</i> a range for your array?");
+	return false;
+	}
 }
 
 //Prints error message to nearest output area

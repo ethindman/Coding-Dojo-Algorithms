@@ -123,28 +123,25 @@ console.log(sum);
   <div class="container">
     <div class="row">
       <div class="twelve columns lesson-node">
-        <h3>4. Find Max</h3>
-        <p>Description: Given an array with multiple values (e.g. [-3, 3, 5, 7]), this program will find and print the maximum number in the array. Toggle the dropdown menus below to set the size of the array (i.e. how many numbers it contains) and the range of randomization. Then click "Run Algorithm".</p>
+        <h3>4. Find Max & Min</h3>
+        <p>Description: Given an array with multiple values (e.g. [-3, 3, 5, 7]), this program will find and print the largest number in the array as well as the smallest value. Toggle the drop-down menus below to set the size of the array (i.e. how many numbers it contains) and the range for how big your numbers can be. This algorithm will find the greatest value in your array.</p>
         <form class="userInput-dropdowns">
           <div class="row">
             <div class="six columns">
-              <label for="userInput">Array Length</label>
+              <label>Array Length</label>
               <select class="u-full-width" id="arrayLength-1">
                 <option value="0">Choose a length...</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
                 <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
                 <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
               </select>
             </div>
             <div class="six columns">
-              <label for="userInpu">Number Range</label>
+              <label>Range</label>
               <select class="u-full-width" id="arrayRange-1">
                 <option value="0">Choose a range...</option>
                 <option value="10">from 1 to 10</option>
@@ -155,23 +152,27 @@ console.log(sum);
             </div>
           </div>
         </form>
-        <button class="button-primary" onclick="findMax('#algorthim-4')">Run Alogrithm</button>
+        <button class="button-primary" onclick="findMaxMin('#algorthim-4')">Run Alogrithm</button>
         <button class="button-primary show-hide">Toggle Notes</button>
         <button class="clear">Clear</button><br><br>
         
 <!-- FIND MAX LESSON NOTES ———————————————————————————————————————— -->
 <div class="lesson-notes hidden">
-The algorithm to find max looks like this:<br><br>
+The algorithm to find max and min looks like this:<br><br>
 x = [1,2,3,4,5];<br>
-var len = x.length;<br>
-var max = x[0];<br><br>
-for (i=1; i < len; i++) {<br>
+var max = x[0];<br>
+var min = x[0];<br><br>
+for (i=1; i < x.length; i++) {<br>
 &nbsp&nbsp&nbsp if (x[i] > max) {<br>
 &nbsp&nbsp&nbsp max = x[i];<br>
 &nbsp&nbsp&nbsp}<br>
+&nbsp&nbsp&nbsp if (x[i] < min) {<br>
+&nbsp&nbsp&nbsp min = x[i];<br>
+&nbsp&nbsp&nbsp}<br>
 }<br>
-console.log(max);<br><br>
-As you can see, we set reference value, max = x[0], or the first value of the array. As we iterate through the array, each time we compare max to the current array value x[i]. If x[i] > max, we update max so that max is equal to x[i]. In other words, each time x[i] is greater than the variable 'max', the variable 'max', will be updated. In this way, we can find the largest value in the array.
+console.log(max);<br>
+console.log(min)<br><br>
+As you can see, we set two reference value, max and min, equal to x[0], or the first value of the array. As we iterate through the array, each time we compare max and min to the current array value x[i]. If x[i] > max, for example, we update max so that max is equal to x[i]. In other words, each time x[i] is greater than the variable 'max', the variable 'max', will be updated. The same is true for the variable min -- except we are looking for when x[i] is less than min. In this way, we can find the largest and smalles values in the array.
 </div>
 <!-- ————————————————————————————————————————————————————— -->
 
@@ -186,27 +187,24 @@ As you can see, we set reference value, max = x[0], or the first value of the ar
     <div class="row">
       <div class="twelve columns lesson-node">
         <h3>5. Find Average of Array</h3>
-        <p>Description: Given an array with multiple values (e.g. [1,3,5,7,20]), this program will calculate the average of the values in the array. Toggle the dropdown menus below to set the size of the array (i.e. how many numbers it contains) and the range of randomization. Then click "Run Algorithm".</p>
+        <p>Description: Given an array with multiple values (e.g. [1,3,5,7,20]), this program will calculate the average of the values in the array. Toggle the drop-down menus below to set the size of the array (i.e. how many numbers it contains) and the range for how big your numbers can be. This algorithm will calculate the average number of your array.</p>
         <form class="userInput-dropdowns">
           <div class="row">
             <div class="six columns">
-              <label for="exampleRecipientInput">Array Length</label>
+              <label>Array Length</label>
               <select class="u-full-width" id="arrayLength-2">
                 <option value="0">Choose a length...</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
                 <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
                 <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
               </select>
             </div>
             <div class="six columns">
-              <label for="exampleRecipientInput">Number Range</label>
+              <label>Range</label>
               <select class="u-full-width" id="arrayRange-2">
                 <option value="0">Choose a range...</option>
                 <option value="10">from 1 to 10</option>
@@ -224,8 +222,7 @@ As you can see, we set reference value, max = x[0], or the first value of the ar
         
 <!-- FIND AVERAGE LESSON NOTES ———————————————————————————————————————— -->
 <div class="lesson-notes hidden">
-To complete this algorithm we need to first calculate the sum of the array. We do this by creating a variable, sum = 0. Then we iterate through our array and
-update the value of sum with the logic, sum = sum + x[i]. After this, we create a variable, average, which equals sum/x.length, and then print the value of "average" to the console.<br><br>
+To complete this algorithm we need to first calculate the sum of the array. We do this by creating a variable, sum = 0. Then we iterate through our array and update the value of sum with the logic, sum = sum + x[i]. After this, we create a variable, average, which equals sum/x.length, and then print the value of "average" to the console.<br><br>
 
 x = [1,2,3,4,5];<br>
 sum = 0;<br>
@@ -234,12 +231,66 @@ for (i=0;i < x.length; i++) {<br>
 }<br>
 var average = sum / x.length;<br>
 console.log(average);<br>
-
-
 </div>
 <!-- ————————————————————————————————————————————————————— -->
 
         <div class="output" id="algorthim-5">
+        <!-- This is where the algorthim is printed -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns lesson-node">
+        <h3>6. Square the Values of an Array</h3>
+        <p>Description: Given an array x (e.g. [1, 5, 10, -2]), this algorithm will square each value in the array. When the program is done, x should have values that have been squared (e.g. [1, 25, 100, 4]). Toggle the drop-down menus below to set the size of the array (i.e. how many numbers it contains) and the range for how big your numbers can be. Then sit back and watch the numbers in your array get squared!</p>
+        <form class="userInput-dropdowns">
+          <div class="row">
+            <div class="six columns">
+              <label>Array Length</label>
+              <select class="u-full-width" id="arrayLength-3">
+                <option value="0">Choose a length...</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
+              </select>
+            </div>
+            <div class="six columns">
+              <label>Range</label>
+              <select class="u-full-width" id="arrayRange-3">
+                <option value="0">Choose a range...</option>
+                <option value="10">from 1 to 10</option>
+                <option value="100">from 1 to 100</option>
+                <option value="1000">from 1 to 1,000</option>
+                <option value="10000">from 1 to 10,000</option>
+              </select>
+            </div>
+          </div>
+        </form>
+
+        <button class="button-primary" onclick="squareValues('#algorthim-6')">Run Alogrithm</button>
+        <button class="button-primary show-hide">Toggle Notes</button>
+        <button class="clear">Clear</button><br><br>
+        
+<!-- SQUARE VALUES LESSON NOTES ———————————————————————————————————————— -->
+<div class="lesson-notes hidden">
+To complete this algorithm we create a <i>for loop</i> that will iterate through each value of the array. Upon each iteration we update x[i] so that x[i] = x[i]*x[i]. Essentially, we are accomplishing our objective by multiplying each value in the array by itself.<br><br>
+
+x = [2,4,6,8];<br>
+for (i=0; i < x.length; i++) {<br>
+&nbsp&nbsp&nbsp x[i] = x[i]*x[i];<br>
+}<br>
+console.log(x);
+</div>
+<!-- ————————————————————————————————————————————————————— -->
+
+        <div class="output" id="algorthim-6">
         <!-- This is where the algorthim is printed -->
         </div>
       </div>

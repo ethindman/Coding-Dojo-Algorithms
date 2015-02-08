@@ -57,6 +57,9 @@ margin-bottom: 0px;
   padding: 4px 12px 7px 10px;
   color: #555;
 }
+.highlight-error {
+  border-color: red;
+}
 .error-msg {
   color: #FA8072;
   font-size: 1.3em;
