@@ -8,6 +8,7 @@ $(document).ready(function() {
         $this.find('.output').empty();
         $this.find('.lesson-notes').hide();
        	$this.find('input').val("");
+       	$this.find('select').val(0);
     });
 });
 
@@ -44,7 +45,9 @@ function printSum(init, increment, inputId, outputId) {
 //Gets a random array of values, then determines the max value
 function findMax(outputId) {
   $(outputId).empty();
-  getArray(outputId, 1000);
+  if (!getArray(outputId, '#arrayLength-1', '#arrayRange-1')) {
+  	return;
+  }
   var max = x[0];
  
 for(i=1;i<x.length;i++) {
@@ -59,14 +62,16 @@ $(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
 
 function findAverage(outputId) {
 	$(outputId).empty();
-	getArray(outputId, 10);
+	if (!getArray(outputId, '#arrayLength-2', '#arrayRange-2')) {
+  	return;
+  }
 	var sum = 0;
 
 	for (i=0;i<x.length;i++) {
 		sum = sum + x[i];
 	}
 	var average = sum / x.length;
-$(outputId).append("<h5>The sum of values in the array x is <span class='highlight-clear'>" +sum+"</span></h5>");
+$(outputId).append("<h5>The sum of the values in array x is <span class='highlight-clear'>" +sum+"</span></h5>");
 $(outputId).append("<h5>So, the average of x is <span class='highlight-gold'>" +average+"</span></h5>");
 $(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
 }
@@ -84,24 +89,31 @@ function testInput(input, outputId, maxValue) {
 		errorMessage(outputId, "Oh! Did I mention zeros and negative numbers don't work here?");
 	}
 	else if (input >= maxValue ){
-		errorMessage(outputId, "Whoa! That number is huge!! Why not choose a smaller number?");
+		errorMessage(outputId, "Haha! I would love to print " +input+" but it would probably crash your browser. Why not choose a smaller number?");
 	}
 	else if (isNaN(input)) {
-		errorMessage(outputId, "Wait a second... Is that even a number?");
+		errorMessage(outputId, "I hate to pull the 'Does Not Compute' card, but I'm not sure "+input+"' is a real number...");
 	}
   	return false;
 }
 
 //Produces a random array of numbers
-function getArray(outputId, range) {
-  x = [];
-for(i=0;i<10;i++) 
-{
-  x[i] = Math.floor((Math.random() * range)+1);
+function getArray(outputId, arrayLength, arrayRange) {
+var length = $(arrayLength).val();
+var range = $(arrayRange).val();
+x = [];
+if (length != 0 && range != 0) {
+	for(i=0;i<length;i++) {
+  x[i] = Math.floor((Math.random() * range) +1);
   x.push(i);
 }
-x.pop();
-$(outputId).append("<p>Your randomly generated array is: x = ["+[x]+"]</p>");
+  x.pop();
+  $(outputId).append("<p>Your randomly generated array is: x = ["+[x]+"]</p>");
+  return true;
+} else {
+	errorMessage(outputId, "Oops! Did you set an array length and number range above?");
+	return false;
+}
 }
 
 //Prints error message to nearest output area
