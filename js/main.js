@@ -95,21 +95,21 @@ $(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
 }
 
 //Gets a random array of values, then squares those values
-function removeNegs(outputId) {
+function removeNegs(outputId, arrayLength, arrayRange, replaceValue) {
 	$(outputId).empty();
-	if (!getArray(outputId, '#arrayLength-4', '#arrayRange-4')) {
+	if (!getArray(outputId, arrayLength, arrayRange)) {
   		return;
   	}
   	var count = 0;
   	for (i=0; i < x.length; i++) {
     	if (x[i] < 0) {
-  			x[i] = 0; 
+  			x[i] = replaceValue; 
   			count++;
   		}
   		x[i] = " "+x[i];
   	}
 $(outputId).append("<h5>When negatives are removed, x = ["+[x]+" ]</h5>");
-$(outputId).append("<h5>We replaced <span class='highlight-gold'>" +count+"</span> negative numbers in this array. Hooray!</h5>");
+$(outputId).append("<h5>We replaced <span class='highlight-gold'>" +count+"</span> negative number(s) in this array. Hooray!</h5>");
 $(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
 }
 
@@ -134,9 +134,9 @@ function testInput(input, outputId, maxValue) {
 }
 
 //Produces a random array of numbers; ensures drop-down fields aren't left blank
-function getArray(outputId, length, range) {
-var length = $(length).val();
-var range = $(range).val();
+function getArray(outputId, arrayLength, arrayRange) {
+var length = $(arrayLength).val();
+var range = $(arrayRange).val();
 x = [];
 if (length != 0 && range != 0) {
   	for(i=0;i<length;i++) {

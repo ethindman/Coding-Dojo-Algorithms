@@ -301,7 +301,7 @@ console.log(x);
     <div class="row">
       <div class="twelve columns lesson-node">
         <h3>7. Eliminate Negative Numbers</h3>
-        <p>Description: Given an array x (e.g. [1,5, 10, -2]), this algorithm replaces any negative number in the array with the value of 0. When the program is done x should have no negative values (e.g. [1, 5, 10, 0]).Toggle the drop-down menus below to set the size of the array (i.e. how many numbers it contains) and the range for how big your numbers can be. Those negative numbers will be transformed into zeros in a blink of an eye.</p>
+        <p>Description: Given an array x (e.g. [1,5, 10, -2]), this algorithm replaces any negative number in the array with the value of 0. When the program is done x should have no negative values (e.g. [1, 5, 10, 0]). Toggle the drop-down menus below to set the size of the array (i.e. how many numbers it contains) and the range for how big your numbers can be. Those negative numbers will be transformed into zeros in a blink of an eye.</p>
         <form class="userInput-dropdowns">
           <div class="row">
             <div class="six columns">
@@ -330,13 +330,13 @@ console.log(x);
           </div>
         </form>
 
-        <button class="button-primary" onclick="removeNegs('#algorthim-7')">Run Alogrithm</button>
+        <button class="button-primary" onclick="removeNegs('#algorthim-7', '#arrayLength-4', '#arrayRange-4', 0)">Run Alogrithm</button>
         <button class="button-primary show-hide">Toggle Notes</button>
         <button class="clear">Clear</button><br><br>
         
 <!-- ELIMINATE NEGATIVES LESSON NOTES ———————————————————————————————————————— -->
 <div class="lesson-notes hidden">
-To create this program, we need a conditional statement which can evaluate if a value of the array is less than 0 (i.e. a negative number). So we use a <i>for loop</i> to iterate through the array. Each time we check if x[i] < 0 -- in which case we update x[i] to be equal to 0.<br><br>
+To create this program, we need a conditional statement which can evaluate if a number in the array is less than 0 (i.e. a negative number). So we use a <i>for loop</i> to iterate through the array. Each time we check if x[i] < 0 -- in which case we update x[i] to be equal to 0.<br><br>
 
 x = [1, 2, 3, 4, -5];<br>
 for (i=0; i < x.length; i++) {<br>
@@ -349,6 +349,64 @@ console.log(x);
 <!-- ————————————————————————————————————————————————————— -->
 
         <div class="output" id="algorthim-7">
+        <!-- This is where the algorthim is printed -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns lesson-node">
+        <h3>8. Number to String</h3>
+        <p>Description: This program takes an array of numbers and replaces any number that's negative with a string called "Dojo". For example if array x = [-1, -3, 2] after the program is done array x will equal [Dojo, Dojo, 2]. Toggle the drop-down menus below to set the size of the array (i.e. how many numbers it contains) and the range for how big your numbers can be. Watch as your negative numbers are replaced by the word "Dojo".</p>
+        <form class="userInput-dropdowns">
+          <div class="row">
+            <div class="six columns">
+              <label>Array Length</label>
+              <select class="u-full-width" id="arrayLength-5">
+                <option value="0">Choose a length...</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
+              </select>
+            </div>
+            <div class="six columns">
+              <label>Range</label>
+              <select class="u-full-width" id="arrayRange-5">
+                <option value="0">Choose a range...</option>
+                <option value="10">from 1 to 10</option>
+                <option value="100">from 1 to 100</option>
+                <option value="1000">from 1 to 1,000</option>
+                <option value="10000">from 1 to 10,000</option>
+              </select>
+            </div>
+          </div>
+        </form>
+
+        <button class="button-primary" onclick="removeNegs('#algorthim-8', '#arrayLength-5', '#arrayRange-5', 'Dojo')">Run Alogrithm</button>
+        <button class="button-primary show-hide">Toggle Notes</button>
+        <button class="clear">Clear</button><br><br>
+        
+<!-- NUMBERS TO STRING LESSON NOTES ———————————————————————————————————————— -->
+<div class="lesson-notes hidden">
+The structure of this algorithm is almost exactly the same as algorithm 6. To create this program, we need a conditional statement which can evaluate if a number of the array is less than 0 (i.e. a negative number). So we use a <i>for loop</i> to iterate through the array. Each time we check if x[i] < 0 -- in which case we update x[i] to be equal to "Dojo".<br><br>
+
+x = [1, 2, 3, 4, -5];<br>
+for (i=0; i < x.length; i++) {<br>
+&nbsp&nbsp&nbsp if (x[i] < 0) {<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp x[i] = "Dojo";<br>
+&nbsp&nbsp&nbsp }<br>
+}<br>
+console.log(x);
+</div>
+<!-- ————————————————————————————————————————————————————— -->
+
+        <div class="output" id="algorthim-8">
         <!-- This is where the algorthim is printed -->
         </div>
       </div>
