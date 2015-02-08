@@ -94,6 +94,25 @@ $(outputId).append("<h5>When the values in x are squared, x = ["+[x]+" ]</h5>");
 $(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
 }
 
+//Gets a random array of values, then squares those values
+function removeNegs(outputId) {
+	$(outputId).empty();
+	if (!getArray(outputId, '#arrayLength-4', '#arrayRange-4')) {
+  		return;
+  	}
+  	var count = 0;
+  	for (i=0; i < x.length; i++) {
+    	if (x[i] < 0) {
+  			x[i] = 0; 
+  			count++;
+  		}
+  		x[i] = " "+x[i];
+  	}
+$(outputId).append("<h5>When negatives are removed, x = ["+[x]+" ]</h5>");
+$(outputId).append("<h5>We replaced <span class='highlight-gold'>" +count+"</span> negative numbers in this array. Hooray!</h5>");
+$(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
+}
+
 //Tests user input for common input errors
 function testInput(input, outputId, maxValue) {
 	if (input !== "" && input <= maxValue && input > 0) {
