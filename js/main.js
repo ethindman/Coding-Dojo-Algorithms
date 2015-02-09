@@ -91,7 +91,7 @@ function squareValues(outputId) {
   	for (i=0; i < x.length; i++) {
     x[i] = " "+x[i]*x[i];
 	}
-$(outputId).append("<h5>When the values in x are squared, x = ["+[x]+" ]</h5>");
+$(outputId).append("<h5>When the values in x are squared, x = ["+x+" ]</h5>");
 $(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
 }
 
@@ -114,7 +114,7 @@ function removeNegs(outputId, arrayLength, arrayRange, replaceValue) {
 	} else {
 		var outputText = "numbers";
 	}
-$(outputId).append("<h5>When negatives are removed, x = ["+[x]+" ]</h5>");
+$(outputId).append("<h5>When negatives are removed, x = ["+x+" ]</h5>");
 $(outputId).append("<h5>We replaced <span class='highlight-gold'>" +count+"</span> negative "+outputText+" in this array. Hooray!</h5>");
 $(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
 }
@@ -142,6 +142,25 @@ function greaterThanY(outputId, inputId, arrayLength, arrayRange) {
 	}
 $(outputId).append("<h5>Y = <span class='highlight-clear'>" +y+"</span>.</h5>");
 $(outputId).append("<h5>So, <span class='highlight-gold'>" +count+"</span> values in x are greater than Y.</h5>");
+$(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
+}
+
+//Gets a random array of values, then squares those values
+function bubbleSort(outputId) {
+	$(outputId).empty();
+	if (!getArray(outputId, '#arrayLength-7', '#arrayRange-7')) {
+  		return;
+  	}
+	for (i=0; i < x.length-1; i++) {
+  		for (j=0; j < x.length-1; j++) {
+      		if (x[j] > x[j+1]) {
+          		temp = " "+x[j];
+          		x[j] = " "+x[j+1];
+          		x[j+1] = temp;
+        	}
+    	}
+	}
+$(outputId).append("<h5>When the values in x are sorted, x = ["+x+" ]</h5>");
 $(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
 }
 

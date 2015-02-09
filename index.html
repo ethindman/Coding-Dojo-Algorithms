@@ -451,7 +451,7 @@ console.log(x);
         
 <!-- GREATER THAN Y LESSON NOTES ———————————————————————————————————————— -->
 <div class="lesson-notes hidden">
-To make this program, we need to reference variables, "y" and "count". "y" is set to whatever value you choose, for example, 2. "count" is set to zero. We then use a <i>for loop</i> to iterate through our array and increment count up by one each time x[i] > y. After the program is finished running, count will be equal to the number of values in our array that are greater than y.<br><br>
+To make this program, we need two reference variables, "y" and "count". The variable "y" is set to whatever value you choose, for example, 2. "count" is set to zero. We then use a <i>for loop</i> to iterate through our array, and increment count up by one each time x[i] > y. After the program is finished running, count will be equal to the number of values in our array that are greater than y.<br><br>
 
 x = [1, 2, 3, 5, -5];<br>
 var y = 2;<br>
@@ -472,11 +472,73 @@ console.log(count);
     </div>
   </div>
 
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns lesson-node">
+        <h3>10. Bubble Sort</h3>
+        <p>Description: Given an array x (e.g. [1,5, 10, -2]), this algorithm replaces any negative number in the array with the value of "0" (zero). When the program is done, x should have no negative values (e.g. [1, 5, 10, 0]). Toggle the drop-down menus below to set the size of the array (i.e. how many numbers it contains) and the range for how big your numbers can be. Those negative numbers will be transformed into zeros in a blink of an eye.</p>
+        <form class="userInput-dropdowns">
+          <div class="row">
+            <div class="six columns">
+              <label>Array Length</label>
+              <select class="u-full-width" id="arrayLength-7">
+                <option value="0">Choose a length...</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
+              </select>
+            </div>
+            <div class="six columns">
+              <label>Range</label>
+              <select class="u-full-width" id="arrayRange-7">
+                <option value="0">Choose a range...</option>
+                <option value="10">from 1 to 10</option>
+                <option value="100">from 1 to 100</option>
+                <option value="1000">from 1 to 1,000</option>
+                <option value="10000">from 1 to 10,000</option>
+              </select>
+            </div>
+          </div>
+        </form>
+
+        <button class="button-primary" onclick="bubbleSort('#algorthim-10')">Run Alogrithm</button>
+        <button class="button-primary show-hide">Toggle Notes</button>
+        <button class="clear">Clear</button><br><br>
+        
+<!-- BUBBLESORT LESSON NOTES ———————————————————————————————————————— -->
+<div class="lesson-notes hidden">
+The format of a typical bubble sort is as follows:<br><br>
+
+x = [0, 5,3,4,-1,-2,5,6];<br><br>
+for (i=0; i < x.length-1; i++) {<br>
+&nbsp&nbsp for (j=0; j < x.length-1; j++) {<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp if (x[j] < x[j+1]) {<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp temp = x[j];<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp x[j] = x[j+1];<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp x[j+1] = temp;<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }<br>
+&nbsp&nbsp }<br>
+}<br>
+console.log(x);<br><br>
+</div>
+<!-- ————————————————————————————————————————————————————— -->
+
+        <div class="output" id="algorthim-10">
+        <!-- This is where the algorthim is printed -->
+        </div>
+      </div>
+    </div>
+  </div>
+
   <br><br>
   <div class="container">
     <div class="row">
       <div class="twelve columns lesson-node">
-        <p>Algorithm Playground 2015 :: Created with passion and a bit of elbow grease! <a href="https://github.com/ethindman/Coding-Dojo-Algorithms">View on GitHub.</a></p>
+        <p>Coding Dojo Algorithms 2015 : Built with passion and a bit of elbow grease! An <a href="http://www.elliottcreates.com/blog">Elliott Codes</a> project. <a href="https://github.com/ethindman/Coding-Dojo-Algorithms">View on GitHub.</a> </p>
       </div>
     </div>
   </div>
