@@ -16,6 +16,7 @@ $(document).ready(function() {
 function forLoop(init, increment, inputId, outputId){
 	var quantity = $(inputId).val();
 	var formatText = removePunc(quantity);
+	
 	$(outputId).empty();
 	if(!testInput(formatText, outputId, 5000)) {
           return;
@@ -118,6 +119,32 @@ $(outputId).append("<h5>We replaced <span class='highlight-gold'>" +count+"</spa
 $(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
 }
 
+//Gets a random array of values, then squares those values
+function greaterThanY(outputId, inputId, arrayLength, arrayRange) {
+	var quantity = $(inputId).val();
+	var formatText = removePunc(quantity);
+
+	$(outputId).empty();
+	if(!testInput(formatText, outputId, 5000000)) {
+    	return;
+    }
+	if (!getArray(outputId, '#arrayLength-6', '#arrayRange-6')) {
+  		return;
+  	}
+
+  	var y = formatText;
+  	var count = 0;
+
+  	for (i=0; i < x.length; i++) {
+   		if (x[i] > y) {
+   			count++;
+   		}
+	}
+$(outputId).append("<h5>Y = <span class='highlight-clear'>" +y+"</span>.</h5>");
+$(outputId).append("<h5>So, <span class='highlight-gold'>" +count+"</span> values in x are greater than Y.</h5>");
+$(outputId).append("<p class='success-msg'>Algorithm printed succesfully!<p>");
+}
+
 //Tests user input for common input errors
 function testInput(input, outputId, maxValue) {
 	if (input !== "" && input <= maxValue && input > 0) {
@@ -130,7 +157,7 @@ function testInput(input, outputId, maxValue) {
 		errorMessage(outputId, "Oh! Did I mention zeros and negative numbers don't work here?");
 	}
 	else if (input >= maxValue ){
-		errorMessage(outputId, "Haha! I would love to print " +input+" but it would probably crash your browser. Why not choose a smaller number?");
+		errorMessage(outputId, "Haha! I would love to use " +input+" but it would probably crash your browser. Why not choose a smaller number?");
 	}
 	else if (isNaN(input)) {
 		errorMessage(outputId, "I hate to pull the 'Does Not Compute' card, but I'm not sure "+input+"' is a real number...");
