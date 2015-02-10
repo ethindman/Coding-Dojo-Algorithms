@@ -154,8 +154,8 @@ function bubbleSort(outputId) {
 	for (i=0; i < x.length-1; i++) {
   		for (j=0; j < x.length-1; j++) {
       		if (x[j] > x[j+1]) {
-          		temp = " "+x[j];
-          		x[j] = " "+x[j+1];
+          		temp = x[j];
+          		x[j] = x[j+1];
           		x[j+1] = temp;
         	}
     	}
@@ -191,7 +191,7 @@ var range = $(arrayRange).val();
 x = [];
 if (length != 0 && range != 0) {
   	for(i=0;i<length;i++) {
-	  	x[i] = Math.floor((Math.random() * range * 2) - range); 
+	  	x[i] = Math.floor(((Math.random() * range * 2) - range) + 1); 
 	  	x.push(i);
 	}
   	x.pop();
